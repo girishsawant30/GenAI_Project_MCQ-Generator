@@ -1,0 +1,8 @@
+langchain
+google-generativeai
+google-cloud-aiplatform
+streamlit
+PyPDF2
+python-dotenv
+
+-e .
