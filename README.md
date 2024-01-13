@@ -30,4 +30,4 @@ git push -f origin main
    
 pip install -r requirements.txt 
 
-Good Work!!!!
+Good Work!!!
