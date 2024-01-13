@@ -29,3 +29,5 @@ git remote add origin https://github.com/girishsawant30/GenAI_MCQ-Generator_Proj
 git push -f origin main
    
 pip install -r requirements.txt 
+
+Good Work!!!!
