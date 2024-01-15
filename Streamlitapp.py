@@ -3,9 +3,8 @@ import json
 import traceback
 import pandas as pd
 from dotenv import load_dotenv
-from src.mcqgenerator.utils import read_file, get_table_data
+from src.mcqgenerator.utils import read_file,get_table_data
 import streamlit as st
-from langchain.callbacks import get_openai_callback
 from langchain_community.callbacks import get_openai_callback
 from src.mcqgenerator.mcqgenerator import generate_evaluate_chain
 from src.mcqgenerator.logger import logging
@@ -18,10 +17,11 @@ with open('Response.json', 'r') as file:
 #creating a title for the app
 st.title("MCQs Creator Application with LangChain 🦜⛓️")
 
-with st.form("user input"):
-    st.file_uploader("Upload pdf or text")
 
-    st.number_input("Number of mcq's", min_value=3, max_value=50)
+with st.form("user input"):
+    uploaded_file = st.file_uploader("upload pdf or text")
+
+    mcq_count = st.number_input("no of mcq's", min_value=3, max_value=50)
 
     subject=st.text_input("Insert Subject",max_chars=20)
 
@@ -41,8 +41,8 @@ with st.form("user input"):
                         "number": mcq_count,
                         "subject":subject,
                         "tone": tone,
-                        "response_json": json.dumps(RESPONSE_JSON)
-                            }
+                        "RESPONSE_JSON": json.dumps(RESPONSE_JSON)
+                        }
                     )
                 #st.write(response)
 
@@ -71,3 +71,7 @@ with st.form("user input"):
 
                 else:
                     st.write(response)
+
+
+
+
