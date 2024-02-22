@@ -1,6 +1,6 @@
 from langchain_community.llms import OpenAI
-#from langchain.chat_models import ChatOpenAI
-from langchain_openai import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
+#from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chains import SequentialChain
@@ -29,7 +29,7 @@ Ensure to make {number} MCQs
 
 """
 
-with open("e:\\Girish Documents\\Study\\Data Science\\DataScience_GenAI_Study\\GenAI_MCQ-Generator_Project\\Response.json","r") as f:
+with open("E:\\Girish Documents\\Study\\Data Science\\DataScience_GenAI_Study\\GenAI_Project_MCQ-Generator\\Response.json","r") as f:
     RESPONSE_JSON=json.load(f)
 
 #print(RESPONSE_JSON)

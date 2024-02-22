@@ -61,11 +61,14 @@ with st.form("user input"):
                     if quiz is not None:
                         table_data=get_table_data(quiz)
                         if table_data is not None:
-                            df=pd.DataFrame(table_data)
-                            df.index=df.index+1
-                            st.table(df)
-                            #Display the review in atext box as well
-                            st.text_area(label="Review", value=response["review"])
+                            try:
+                                df=pd.DataFrame(table_data)
+                                df.index=df.index+1
+                                st.table(df)
+                                #Display the review in atext box as well
+                                st.text_area(label="Review", value=response["review"])
+                            except ValueError as ve:
+                                st.error(f'Error creating Dataframe: {ve}')
                         else:
                             st.error("Error in the table data")
 
